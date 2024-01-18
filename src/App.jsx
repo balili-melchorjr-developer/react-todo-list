@@ -36,10 +36,6 @@ function App() {
       age: 28
     }
   ]
-
-
-
-
     
   return (
     <>
