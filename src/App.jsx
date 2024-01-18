@@ -1,6 +1,9 @@
 import './App.css'
 import MyButtonComponent from './components/MyButtonComponent'
 
+const MyButton = () => {
+  return <button>My Button</button>
+}
 
 function App() {
   const cities = ['Manila', 'Cebu City', 'Bacolod', 'Davao City']
@@ -35,6 +38,8 @@ function App() {
   ]
 
 
+
+
     
   return (
     <>
@@ -45,6 +50,8 @@ function App() {
         </li>
       ))}
     </ul>
+    <hr/>
+    <MyButton/>
     <hr/>
     <h1>Table</h1>
     {person.length > 0 && 
