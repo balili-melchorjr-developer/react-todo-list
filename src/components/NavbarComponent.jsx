@@ -8,9 +8,9 @@ const NavbarComponent = () => {
                     <h2>Logo</h2>
                 </div>
                 <ul className={style["navbar-items"]}>
-                    <li><a>Home</a></li>
-                    <li><a>Contact</a></li>
-                    <li><a>About</a></li>
+                    <li><a style={{borderBottom: "2px solid white", color: "green"}}>Home</a></li>
+                    <li><a style={{borderBottom: "2px solid white"}}>Contact</a></li>
+                    <li><a style={{borderBottom: "2px solid white"}}>About</a></li>
                 </ul>
             </nav> 
         </>
