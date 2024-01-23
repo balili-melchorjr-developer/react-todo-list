@@ -1,14 +1,20 @@
-import ExpandableTextConponent from "./components/ExpandableTextConponent"
-import LikeComponent from "./components/LikeComponent"
+import { useRef } from "react"
 
 function App() {
 
+  const inputRef = useRef()
+
+  const handleGetValue = () => {
+    const value = inputRef.current.value
+    console.log(value)
+  }
+
+
+
   return (
     <>
-      <ExpandableTextConponent maxChars={20}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, dignissimos! Asperiores id nam voluptas blanditiis at ab doloribus aliquam dolor, sit magni incidunt assumenda rerum nostrum ratione doloremque ullam. Voluptatum.
-
-      </ExpandableTextConponent>
+      <input ref={inputRef} type="firstName" placeholder="Enter Name..." />
+      <button className="btn btn-primary" onClick={handleGetValue}>Get Value</button>
     </>
   )
 }
