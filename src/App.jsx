@@ -1,20 +1,17 @@
-import { useRef } from "react"
+import { useEffect, useState } from "react"
 
 function App() {
+  const [count, setCount] = useState(0)
+  useEffect(() => {
+    console.log("Count updated")
+  }, [])
 
-  const inputRef = useRef()
-
-  const handleGetValue = () => {
-    const value = inputRef.current.value
-    console.log(value)
+  const handleIncrement = () => {
+    setCount((prevState) => prevState + 1)
   }
-
-
-
   return (
     <>
-      <input ref={inputRef} type="firstName" placeholder="Enter Name..." />
-      <button className="btn btn-primary" onClick={handleGetValue}>Get Value</button>
+      <button onClick={handleIncrement}>Increment</button>
     </>
   )
 }
