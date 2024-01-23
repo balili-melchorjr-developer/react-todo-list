@@ -1,43 +1,15 @@
-import { useReducer } from "react"
-
-const reducer = (state, action) => {
-  console.log(state, action)
-  switch(action.type) {
-    case "increment":      
-      return {count: state.count + 1} 
-    case "decrement":  
-        return {count: state.count - 1}
-    case "reset":
-      return {count: 0}
-    default:
-      return state
-  }
-}
-
+import { useCallback, useState } from "react"
 
 function App() {
-  const initialState = { count: 0}
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [count, setCount] = useState(0)
 
-  const handleIncrement = () => {
-    dispatch({type: "increment"})
-  }
-  
-  const handleDecrement = () => {
-    dispatch({type: "decrement"})
-  }
-  const handleReset = () => {
-    dispatch({type: "reset"})
-  }
-
+  const handleIncrement = useCallback(() => {
+    setCount((prevCount) => prevCount + 1)
+  }, [])
   return (
     <>
-      <h2>Count: {state.count}</h2>
-      <div>
-        <button className="btn btn-primary" onClick={handleIncrement}>Increment</button>
-        <button className="btn btn-danger" onClick={handleDecrement}>Decrement</button>
-        <button className="btn btn-success" onClick={handleReset}>Reset</button>
-      </div>
+      <p>Count: {count}</p>
+      <button onClick={handleIncrement}>Increment</button>
     </>
   )
 }
