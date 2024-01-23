@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 function App() {
   const [count, setCount] = useState(0)
+  const inputRef = useRef()
   useEffect(() => {
+    inputRef.current.focus()
     console.log("Count updated")
   }, [])
 
@@ -11,6 +13,7 @@ function App() {
   }
   return (
     <>
+      <input type="text" ref={inputRef} />
       <button onClick={handleIncrement}>Increment</button>
     </>
   )
